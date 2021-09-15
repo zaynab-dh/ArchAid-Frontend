@@ -23,11 +23,13 @@ export default function Countries() {
     return (
         <div>
             {loading ? 'loading...' : ''}
-            {countries.map((country) => (
-                <div key={country._id}>
-                    <p>{country.country_name}</p>
-                </div>
+            <select>
+                {countries.map((country) => (
+                    <option key={country._id} value={country._id} required onChange={e => setCountries(e.currentTarget.value)}>
+                    {country.country_name}
+                </option>
             ))}
+            </select>
         </div>
     )
 }

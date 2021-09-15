@@ -3,6 +3,7 @@ import LandingPage from "./pages/LandingPage";
 import Countries from "./components/countries";
 import Cities from "./components/cities";
 import Properties from "./components/properties";
+import Zonerules from "./components/zoneRules";
 import "./App.css";
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
       <Route path="/countries" component={Countries} />
       <Route path="/cities" component={Cities} />
       <Route path="/properties" component={Properties} />
+      <Route path="/zonerules" component={Zonerules} />
     </Switch>
   );
 };

@@ -21,12 +21,20 @@ export default function Cities() {
 
     return (
         <div>
+
+            {/* <select name="Srole" className="login-in2" required onChange={e => setCities(e.target.value)}>
+                <option value="">None</option>
+                <option value="Admin">Admin</option>
+                <option value="Teacher">Teacher</option>
+            </select> */}
             {loading ? 'loading...' : ''}
-            {cities.map((city) => (
-                <div key={city._id}>
-                    <p>{city.city_name}</p>
-                </div>
-            ))}
+            <select>
+                {cities.map((city) => (
+                    <option key={city._id} value={city._id} required onChange={e => setCities(e.currentTarget.value)}>
+                        {city.city_name}
+                    </option>
+                ))}
+            </select>
         </div>
     )
 }
