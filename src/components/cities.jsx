@@ -1,36 +1,55 @@
 import { useEffect, useState } from 'react';
 
 
-export default function Cities() {
-
-
+export default function Cities(props) {
     //Get All cities
-    const [loading, setLoading] = useState(true);
     const [cities, setCities] = useState([]);
+    const setSelCity = props.onChange;
 
     useEffect(() => {
         let getCities = async () => {
             let url = 'http://localhost:8080/cities'
             let res = await fetch(url);
             let result = await res.json();
-            setLoading(false);
-            if (result.success) setCities(result.response);
+            if (result.success) {
+                let event = {
+                    target: {
+                        name: props.name,
+                        value: result.response[0]._id
+                    }
+                }
+                setCities(result.response);
+                setSelCity(event);
+            }
         }
         getCities();
     }, [])
 
+    let handleChange = (e) => {
+        let event = {
+            target: {
+                name: props.name,
+                value: e.target.value
+            }
+        }
+        setSelCity(event)
+    }
+
     return (
         <div>
 
-            {/* <select name="Srole" className="login-in2" required onChange={e => setCities(e.target.value)}>
-                <option value="">None</option>
-                <option value="Admin">Admin</option>
-                <option value="Teacher">Teacher</option>
-            </select> */}
-            {loading ? 'loading...' : ''}
-            <select>
+            {/* <form onSubmit={Submit}> */}
+            <select
+                class="form-control form-control-lg"
+                onChange={handleChange}
+                value={props.value}
+            >
                 {cities.map((city) => (
-                    <option key={city._id} value={city._id} required onChange={e => setCities(e.currentTarget.value)}>
+                    <option
+                        // selected={props.id === country._id}
+                        key={city._id}
+                        value={city._id}
+                    >
                         {city.city_name}
                     </option>
                 ))}
@@ -38,3 +57,4 @@ export default function Cities() {
         </div>
     )
 }
+

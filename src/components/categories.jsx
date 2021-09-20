@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
 
-export default function Countries(props) {
-    //Get All countries
-    const [countries, setCountries] = useState([]);
+export default function Categories(props) {
+    //Get All categories
+    const [categories, setCategories] = useState([]);
     // const [selCount, setSelCount] = useState(null);
-    const setSelCountry = props.onChange;
+    const setSelCategory = props.onChange;
 
     useEffect(() => {
-        let getCountries = async () => {
-            let url = 'http://localhost:8080/countries'
+        let getCategories = async () => {
+            let url = 'http://localhost:8080/categories'
             let res = await fetch(url);
             let result = await res.json();
             if (result.success) {
@@ -19,11 +19,11 @@ export default function Countries(props) {
                         value: result.response[0]._id
                     }
                 }
-                setCountries(result.response);
-                // setSelCountry(event);
+                setCategories(result.response);
+                setSelCategory(event);
             }
         }
-        getCountries();
+        getCategories();
     }, [])
 
     let handleChange = (e) => {
@@ -33,7 +33,7 @@ export default function Countries(props) {
                 value: e.target.value
             }
         }
-        setSelCountry(event)
+        setSelCategory(event)
     }
 
     return (
@@ -45,13 +45,13 @@ export default function Countries(props) {
                 onChange={handleChange}
                 value={props.value}
             >
-                {countries.map((country) => (
+                {categories.map((category) => (
                     <option
                         // selected={props.id === country._id}
-                        key={country._id}
-                        value={country._id}
+                        key={category._id}
+                        value={category._id}
                     >
-                        {country.country_name}
+                        {category.category_name}
                     </option>
                 ))}
             </select>

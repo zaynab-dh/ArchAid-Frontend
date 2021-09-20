@@ -3,7 +3,6 @@ import { Link, BrowserRouter, Route, Switch } from "react-router-dom";
 import { Navigation } from "../components/navigation";
 import { Header } from "../components/header";
 import { Features } from "../components/features";
-import { Services } from "../components/services";
 import { Testimonials } from "../components/testimonials";
 import { Contact } from "../components/contact";
 import JsonData from "../data/data.json";
@@ -26,7 +25,6 @@ const LandingPage = () => {
       <Navigation />
       <Header data={landingPageData.Header} />
       <Features data={landingPageData.Features} />
-      {/* <Services data={landingPageData.Services} /> */}
       <Testimonials data={landingPageData.Testimonials} />
       <Contact data={landingPageData.Contact} />
     </div>

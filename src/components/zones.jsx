@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 
 
-export default function Countries(props) {
-    //Get All countries
-    const [countries, setCountries] = useState([]);
-    // const [selCount, setSelCount] = useState(null);
-    const setSelCountry = props.onChange;
+export default function Zones(props) {
+    //Get All zones
+    const [zones, setZones] = useState([]);
+    const setSelZone = props.onChange;
 
     useEffect(() => {
-        let getCountries = async () => {
-            let url = 'http://localhost:8080/countries'
+        let getZones = async () => {
+            let url = 'http://localhost:8080/zones'
             let res = await fetch(url);
             let result = await res.json();
             if (result.success) {
@@ -19,11 +18,11 @@ export default function Countries(props) {
                         value: result.response[0]._id
                     }
                 }
-                setCountries(result.response);
-                // setSelCountry(event);
+                setZones(result.response);
+                setSelZone(event);
             }
         }
-        getCountries();
+        getZones();
     }, [])
 
     let handleChange = (e) => {
@@ -33,7 +32,7 @@ export default function Countries(props) {
                 value: e.target.value
             }
         }
-        setSelCountry(event)
+        setSelZone(event)
     }
 
     return (
@@ -45,13 +44,13 @@ export default function Countries(props) {
                 onChange={handleChange}
                 value={props.value}
             >
-                {countries.map((country) => (
+                {zones.map((zone) => (
                     <option
                         // selected={props.id === country._id}
-                        key={country._id}
-                        value={country._id}
+                        key={zone._id}
+                        value={zone._id}
                     >
-                        {country.country_name}
+                        {zone.code}
                     </option>
                 ))}
             </select>
