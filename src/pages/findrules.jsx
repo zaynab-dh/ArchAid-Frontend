@@ -53,7 +53,7 @@ export default function FindRules() {
             if (result.success) {
                 setZones(result.response);
                 if (result.response && result.response[0]) {
-                    // setSelZone(result.response[0]._id)
+                    setSelZone(result.response[0]._id)
                 }
             }
         }
@@ -83,84 +83,90 @@ export default function FindRules() {
 
     let handleZoneChange = (id) => {
         setSelZone(id);
-        history.push(`/zonerules/${id}`);
+        // history.push(`/zonerules/${id}`);
+    }
+
+    let handleSubmit = e => {
+        e.preventDefault();
+        history.push(`/zonerules/${selZone}`);
     }
 
     return (
         <div className='text-center'>
-            
 
-                <div className='col-md-10 col-md-offset-1 section-title'>
-                    <h2>Find your zone's rules</h2>
-                </div>
+
+            <div className='col-md-10 col-md-offset-1 section-title'>
+                <h2>Find your zone's rules</h2>
+            </div>
+            <form onSubmit={handleSubmit}>
                 <center>
-            {/* <form onSubmit={Submit}> */}
 
-            <select
-                class="form-control form-control-lg"
-                onChange={handleCountryChange}
-                value={selCount}
-            >
-                {countries.map((country) => (
-                    <option
-                        required
-                        key={country._id}
-                        value={country._id}
+                    <select
+                        class="form-control form-control-lg"
+                        onChange={handleCountryChange}
+                        value={selCount}
                     >
-                        {country.country_name}
-                    </option>
-                ))}
-            </select>
+                        {countries.map((country) => (
+                            <option
+                                required
+                                key={country._id}
+                                value={country._id}
+                            >
+                                {country.country_name}
+                            </option>
+                        ))}
+                    </select>
 
-            <br /><br />
+                    <br /><br />
 
-            <select
-                class="form-control form-control-lg"
-                onChange={handleCityChange}
-                value={selCity}
-            >
-                {cities.map((city) => (
-                    <option
-                        key={city._id}
-                        value={city._id}
+                    <select
+                        class="form-control form-control-lg"
+                        onChange={handleCityChange}
+                        value={selCity}
                     >
-                        {city.city_name}
-                    </option>
-                ))}
-            </select>
+                        {cities.map((city) => (
+                            <option
+                                key={city._id}
+                                value={city._id}
+                            >
+                                {city.city_name}
+                            </option>
+                        ))}
+                    </select>
 
-            <br /><br />
+                    <br /><br />
 
-            <select
-                class="form-control form-control-lg"
-                onChange={(e) => handleZoneChange(e.target.value)}
+                    <select
+                        class="form-control form-control-lg"
+                        onChange={(e) => handleZoneChange(e.target.value)}
 
-            >
-                {zones.map((zone) => (
-                    <option
-                        key={zone._id}
-                        value={zone._id}
                     >
-                        {zone.code}
-                    </option>
-                ))}
-            </select></center>
+                        {zones.map((zone) => (
+                            <option
+                                key={zone._id}
+                                value={zone._id}
+                            >
+                                {zone.code}
+                            </option>
+                        ))}
+                    </select></center>
 
+                <div>
+                    <button
+                        type="submit"
+                        className="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn"
+                        value="Submit"
+                        style={{
+                            margin: '30px auto'
+                        }}
+                    >
+                        Submit
+                    </button>
+                </div>
 
-            {/* <div>
-                {zoneRules.map((zonerule) => (
-                    <div key={zonerule._id}
-                        value={zonerule._id}>
-                        <p>{zonerule.value}</p>
-                    </div>
-                ))}
-            </div> */}
+                {/* <button type="submit"/> */}
 
-
-
-            {/* 
-                <button type="submit"/> */}
-            {/* </form> */}
+            </form>
 
         </div>
     )

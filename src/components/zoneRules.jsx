@@ -20,8 +20,11 @@ export default function ZoneRules(props) {
 
     return (
         <div>
-            <p>{zoneRules[0] && zoneRules[0].zone.code}</p>
-            <table style={{ width: '100%', textAlign: 'right', direction: 'rtl' }}>
+            <div className='col-md-10 col-md-offset-1 section-title'>
+               <center><h2> <p>{zoneRules[0] && zoneRules[0].zone.code}</p></h2></center>
+            </div>
+            <table className="table table-striped table-hover">
+            {/* <table style={{ width: '100%', textAlign: 'center', direction: 'rtl' }}> */}
                 <thead>
                     <tr>
                         {zoneRules.map(zoneRule => (
@@ -49,5 +52,6 @@ export default function ZoneRules(props) {
                 </tbody>
             </table>
         </div>
+
     )
 }

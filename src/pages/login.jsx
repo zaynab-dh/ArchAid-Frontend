@@ -55,38 +55,7 @@ export default function Login() {
 
     return (
         <>
-            {/* <div style={{ height: "100%", textAlign: "center", top: "50%", bottom: "50%", margin: "auto", }}>
-
-                <div className="login-container">
-                    <form action="" onSubmit={Submit}>
-                        <label htmlFor="" style={{ display: "block" }}>
-                            <input className="login-in" type="text" placeholder="  Username" onChange={e => setUsername(e.target.value)} required />
-                        </label>
-
-                        <label htmlFor="" style={{ display: "block" }}>
-                            <input type="password" className="login-in" placeholder="  Password" onChange={e => setPassword(e.target.value)} required />
-                        </label>
-
-
-                        <label htmlFor="" style={{ display: "block" }} htmlFor="Srole">
-                            Select Role <select name="Srole" className="login-in2" required onChange={e => setRole(e.target.value)}>
-                                <option value="">None</option>
-                                <option value="Admin">Admin</option>
-                            </select>
-                        </label>
-
-                        <label htmlFor="Submit">
-
-                            <input type="submit" value="Login" className="login-in1" />
-
-                        </label>
-
-                    </form>
-                </div>
-
-            </div> */}
-
-
+        
     <div className='text-center'>
 
       <div className='col-md-10 col-md-offset-1 section-title'>
@@ -102,13 +71,15 @@ export default function Login() {
         </div>
 
         <select
-                class="form-control form-control-lg"
+                class="form-control-login form-control form-control-lg"
                 name="Srole"
                 required onChange={e => setRole(e.target.value)}
             >
                 <option value="">None</option>
                 <option value="Admin">Admin</option>
             </select>
+
+            <br/>
 
         <div class="mt-3">
           <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Login">Login</button>
