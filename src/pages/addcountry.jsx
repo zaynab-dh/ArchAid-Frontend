@@ -19,7 +19,7 @@ const Country = () => {
     };
 
     await axios.post('http://localhost:8080/countries', reqBody)
-      .then(history.push('/countries'))
+      .then(history.push('/countries1'))
 
   }
 

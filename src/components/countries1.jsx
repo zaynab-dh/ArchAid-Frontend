@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import API from "../API";
 
 
 export default function Countries1() {
@@ -24,21 +25,24 @@ export default function Countries1() {
 
     
 
-    let handleCountryChange = (e) => {
-        setSelCount(e.target.value);
-    }
+    // let handleCountryChange = (e) => {
+    //     setSelCount(e.target.value);
+    // }
 
-    let handleDelete = (e) => {
-        
+    let handleDelete = (id) => {
+      API.delete(`countries/${id}`);
+
+      let filter = [...countries].filter((countries) => countries._id !== id);
+                setCountries(filter);
     }
 
     return (
-        <div>
+        <div className='text-center'>
 
             <div class="col-sm-6">
-                  <h2>
-                    countries
-                  </h2>
+            <div className='col-md-10 col-md-offset-1 section-title'>
+                    <h2>Countries</h2>
+                </div>
                
                 <div class="col-sm-6">
                   <Link to="/addcountry" class="btn " data-toggle="modal">
@@ -66,7 +70,7 @@ export default function Countries1() {
                     // </li>
                     <tr>
                     <td>{country.country_name}</td>
-                    <td>
+                    {/* <td>
                         <a
                         href="#"
                         class="delete"
@@ -77,9 +81,12 @@ export default function Countries1() {
                             &#xE872;
                         </i>
                         </a>
-                    </td>
+                    </td> */}
                     <td>
                     <Link to={`/editcountry/${country._id}`}><button >edit</button></Link>
+                    </td>
+                    <td>
+                    <button onClick={() => handleDelete(country._id)}>Delete</button>
                     </td>
                     </tr>
 
