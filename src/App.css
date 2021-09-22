@@ -16,6 +16,8 @@
   flex-direction: row;
 }
 
+
+
 .addbutton{
   /* margin-top: 50px; */
   /* margin-left: 310px; */
@@ -71,6 +73,18 @@
 .buttonscontainer{
   display: flex;
   justify-content: center;
+}
+
+.form-group{
+  width: 50%;
+}
+
+.form-control{
+  width: 50%;
+}
+
+.btn{
+  width: 20%;
 }
 
 @media only screen and (max-width: 600px) {

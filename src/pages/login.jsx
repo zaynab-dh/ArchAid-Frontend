@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
+import { Link } from "react-router-dom";
 
 
 export default function Login() {
@@ -54,7 +55,7 @@ export default function Login() {
 
     return (
         <>
-            <div style={{ height: "100%", textAlign: "center", top: "50%", bottom: "50%", margin: "auto", }}>
+            {/* <div style={{ height: "100%", textAlign: "center", top: "50%", bottom: "50%", margin: "auto", }}>
 
                 <div className="login-container">
                     <form action="" onSubmit={Submit}>
@@ -83,7 +84,43 @@ export default function Login() {
                     </form>
                 </div>
 
-            </div>
+            </div> */}
+
+
+    <div className='text-center'>
+
+      <div className='col-md-10 col-md-offset-1 section-title'>
+          <h2>Admin login</h2>
+      </div>
+      <center><form class="pt-3" onSubmit={Submit} action="" >
+        <div class="form-group">
+          <input onChange={e => setUsername(e.target.value)} required type="text" class="form-control form-control-lg" name='Username' id="Username" placeholder="Username" />
+        </div>
+
+        <div class="form-group">
+          <input onChange={e => setPassword(e.target.value)} required type="password" class="form-control form-control-lg" name='Username' id="Username" placeholder="Password" />
+        </div>
+
+        <select
+                class="form-control form-control-lg"
+                name="Srole"
+                required onChange={e => setRole(e.target.value)}
+            >
+                <option value="">None</option>
+                <option value="Admin">Admin</option>
+            </select>
+
+        <div class="mt-3">
+          <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Login">Login</button>
+        </div>
+      </form>
+      </center>
+      <br/>
+      <div class="mt-3">
+        <center><Link to={"/"}><button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
+      </div>
+
+    </div>
         </>
     )
 }

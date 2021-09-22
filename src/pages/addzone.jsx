@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Cities from '../components/cities';
+import { Link } from "react-router-dom";
 
 const Zone = () => {
 
@@ -24,9 +25,12 @@ const Zone = () => {
     }
 
     return (
-        <div>
-            <h4>Add new zone</h4>
-            <form class="pt-3" onSubmit={handleCreate} action="" >
+        <div className='text-center'>
+
+      <div className='col-md-10 col-md-offset-1 section-title'>
+          <h2>Add new zone</h2>
+      </div>
+      <center><form class="pt-3" onSubmit={handleCreate} action="" >
                 <div class="form-group">
                     <input onChange={handleChange} type="text" class="form-control form-control-lg" name='code' value={state.code} id="code" placeholder="code" />
                 </div>
@@ -40,7 +44,11 @@ const Zone = () => {
                 <div class="mt-3">
                     <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Add">Add</button>
                 </div>
-            </form>
+            </form></center>
+      <br/>
+      <div class="mt-3">
+        <center><Link to={"/adminpage"}><button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
+      </div>
         </div>
     );
 }

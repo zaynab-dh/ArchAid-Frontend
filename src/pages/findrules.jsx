@@ -87,7 +87,13 @@ export default function FindRules() {
     }
 
     return (
-        <div>
+        <div className='text-center'>
+            
+
+                <div className='col-md-10 col-md-offset-1 section-title'>
+                    <h2>Find your zone's rules</h2>
+                </div>
+                <center>
             {/* <form onSubmit={Submit}> */}
 
             <select
@@ -138,7 +144,7 @@ export default function FindRules() {
                         {zone.code}
                     </option>
                 ))}
-            </select>
+            </select></center>
 
 
             {/* <div>

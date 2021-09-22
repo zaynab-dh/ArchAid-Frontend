@@ -51,38 +51,27 @@ export default function EditCountry() {
 
   return (
     <>
-      <div id="editEmployeeModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form onSubmit={handleSave}>
-              <div class="modal-header">
-                <h4 class="modal-title">edit country</h4>
-              </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label>country name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="country_name"
-                    value={state.country_name}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <div class="modal-footer">
-              <button 
-             type="submit"
-              // onClick={() =>
-                // history.push({ pathname: `/countries1` }) } 
-              ></button>
 
-              {/* <button type="submit" value="save"> </button> */}
-              </div>
-            </form>
-          </div>
-        </div>
+      <div className='text-center'>
+
+      <div className='col-md-10 col-md-offset-1 section-title'>
+          <h2>Edit country</h2>
       </div>
+      <center><form class="pt-3" onSubmit={handleSave} action="" >
+        <div class="form-group">
+          <input onChange={handleChange} type="text" class="form-control form-control-lg" name='country_name' value={state.country_name} id="country_name" placeholder="country name" />
+        </div>
+        <div class="mt-3">
+          <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Save">Save</button>
+        </div>
+      </form>
+      </center>
+      <br/>
+      <div class="mt-3">
+        <center><Link to={"/countries1"}><button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
+      </div>
+
+    </div>
     </>
   );
 }

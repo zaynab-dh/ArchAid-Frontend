@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Zones from '../components/zones';
+import { Link } from "react-router-dom";
 
 const Property = () => {
 
@@ -24,9 +25,12 @@ const Property = () => {
     }
 
     return (
-        <div>
-            <h4>Add new property</h4>
-            <form class="pt-3" onSubmit={handleCreate} action="" >
+        <div className='text-center'>
+
+      <div className='col-md-10 col-md-offset-1 section-title'>
+          <h2>Add new category</h2>
+      </div>
+      <center><form class="pt-3" onSubmit={handleCreate} action="" >
                 <div class="form-group">
                     <input onChange={handleChange} type="text" class="form-control form-control-lg" name='property_name' value={state.property_name} id="property_name" placeholder="property name" />
                 </div>
@@ -38,6 +42,11 @@ const Property = () => {
                     <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Add">Add</button>
                 </div>
             </form>
+            </center>
+            <br/>
+            <div class="mt-3">
+                <center><Link to={"/adminpage"}><button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
+            </div>
         </div>
     );
 }
