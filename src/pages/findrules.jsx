@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom';
+import ZoneRules from "../components/zoneRules"
+import { useHistory } from 'react-router-dom';
 
 export default function FindRules() {
+    const history = useHistory();
+
     //Get All countries
     const [countries, setCountries] = useState([]);
     const [cities, setCities] = useState([]);
     const [zones, setZones] = useState([]);
-    // const [property, setProperty] = useState([]);
+    const [zoneRules, setZoneRules] = useState([]);
     const [selCount, setSelCount] = useState(null);
     const [selCity, setSelCity] = useState(null);
-    const [selZone, setZone] = useState(null);
+    const [selZone, setSelZone] = useState(null);
 
     useEffect(() => {
         let getCountries = async () => {
@@ -46,10 +50,28 @@ export default function FindRules() {
             let url = `http://localhost:8080/zones/getByCityId/${selCity}`;
             let res = await fetch(url);
             let result = await res.json();
-            if (result.success) setZones(result.response);
+            if (result.success) {
+                setZones(result.response);
+                if (result.response && result.response[0]) {
+                    // setSelZone(result.response[0]._id)
+                }
+            }
         }
         if (selCity) getZones();
     }, [selCity])
+
+    useEffect(() => {
+        let getZoneRules = async () => {
+            let url = `http://localhost:8080/zonerules/getByZoneId/${selZone}`;
+            let res = await fetch(url);
+            let result = await res.json();
+            if (result.success) {
+                setZoneRules(result.response);
+            }
+        }
+        getZoneRules();
+    }, [])
+
 
     let handleCountryChange = (e) => {
         setSelCount(e.target.value);
@@ -59,8 +81,9 @@ export default function FindRules() {
         setSelCity(e.target.value);
     }
 
-    let handleZoneChange = e => {
-        setZone(e.target.value)
+    let handleZoneChange = (id) => {
+        setSelZone(id);
+        history.push(`/zonerules/${id}`);
     }
 
     return (
@@ -104,8 +127,8 @@ export default function FindRules() {
 
             <select
                 class="form-control form-control-lg"
-                onChange={handleZoneChange}
-                value={selZone}
+                onChange={(e) => handleZoneChange(e.target.value)}
+
             >
                 {zones.map((zone) => (
                     <option
@@ -116,6 +139,18 @@ export default function FindRules() {
                     </option>
                 ))}
             </select>
+
+
+            {/* <div>
+                {zoneRules.map((zonerule) => (
+                    <div key={zonerule._id}
+                        value={zonerule._id}>
+                        <p>{zonerule.value}</p>
+                    </div>
+                ))}
+            </div> */}
+
+
 
             {/* 
                 <button type="submit"/> */}

@@ -25,6 +25,7 @@ export default function Cities(props) {
         getCities();
     }, [])
 
+
     let handleChange = (e) => {
         let event = {
             target: {
