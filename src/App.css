@@ -3,6 +3,7 @@
   display:flex;
   flex-direction: column;
   width: 50%;
+  margin: auto;
 }
 
 body{
@@ -11,13 +12,15 @@ body{
 
 .container1{
   display:flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
 }
-.container2{
+/* .container2{
   display:flex;
   flex-direction: row;
-}
+} */
+
 
 .section-title1{
   margin-top: 8%;
@@ -48,13 +51,21 @@ body{
     
 }
 
-.addbutton1{
+/* .addbutton1{
     background-color: rgb(63, 58, 58);
     color: #fbb23d;
     width:250px;
     height: 50px;
     border-radius: 25px;
     font-size: 18px;
+} */
+.addbutton1{
+  background-color: #fbb23d;
+  color: white;
+  width:150px;
+  height: 150px;
+  border-radius: 25px;
+  font-size: 18px;
 }
 
 .addbutton1:hover{
@@ -94,13 +105,6 @@ body{
   padding: 1%;
 }
 
-/* .rules{
-  background-color: #fbb23d;
-  color: white;
-  padding: 2%;
-  display: inline-block;
-  border-radius: 50%;
-} */
 
 .addbutton3:hover{
   background-color: rgb(32, 32, 32);
@@ -128,6 +132,22 @@ body{
 
 .form-control-login{
   width: 25%;
+}
+.padding{
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+
+.btnn1{
+  background-color: #fbb23d;
+  color: white;
+  margin-left: 350%;
+}
+.btnn2{
+  background-color: black;
+  color: white;
+  margin-left: 300%;
 }
 
 @media only screen and (max-width: 600px) {

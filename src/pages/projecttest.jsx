@@ -7,37 +7,22 @@ import Swal from 'sweetalert2'
 const ProjectTest = () => {
 
     const history = useHistory();
-    // const { id: zoneId } = useParams();
-    const [zoneRules, setZoneRules] = useState([]);
-    console.log(zoneRules);
-    const [selZone, setSelZone] = useState(null);
-    const [state, setState] = useState({
-        code: '',
-        siteArea: '',
-        frontRetraction: '',
-        lateralRetraction: '',
-        backRetraction: '',
-        groundFloorHeight: '',
-        typicalFloorHeight: '',
-        numberOfFloors: '',
-        groundFloorArea: '',
-        typicalFloorArea: '',
-        balconiesArea: '',
-        stairsArea: '',
-        elevatorsArea: '',
-    });
+    const [rules, setRules] = useState([]);
+    const [selZone, setSelZone] = useState('');
+    const [state, setState] = useState({});
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
         window.scrollTo({ top: 0 });
-        let getZoneRules = async () => {
-            let url = `http://localhost:8080/zonerules/getByZoneId/${selZone}`;
+        let getRules = async () => {
+            let url = `http://localhost:8080/rules`;
             let res = await fetch(url);
             let result = await res.json();
             if (result.success) {
-                setZoneRules(result.response);
+                setRules(result.response);
             }
         }
-        // getZoneRules();
+        getRules();
     }, [])
 
 
@@ -49,48 +34,69 @@ const ProjectTest = () => {
         }));
     }
 
-    let validate = () => {
+    let validate = () => { }
 
-    }
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const isValid = validate();
-        if (isValid) {
-            Swal.fire({
-                title: 'Custom width, padding, background.',
-                width: 600,
-                padding: '3em',
-                background: '#fff url(/images/trees.png)',
-                backdrop: `
-                  rgba(0,0,123,0.4)
-                  url("/images/nyan-cat.gif")
-                  left top
-                  no-repeat
-                `
-            })
-
-            // await Swal.fire({
-            //     title: <strong>Congratulations!</strong>,
-            //     html: <i>Good job!</i>,
-            //     icon: 'success'
-            //   })
-        }
-
-
+        // if (validate()) {
+        //     Swal.fire({
+        //         title: 'Custom width, padding, background.',
+        //         width: 600,
+        //         padding: '3em',
+        //         background: '#fff url(/images/trees.png)',
+        //         backdrop: `
+        //           rgba(0,0,123,0.4)
+        //           url("/images/nyan-cat.gif")
+        //           left top
+        //           no-repeat
+        //         `
+        //     });
+        // }
+        let url = `http://localhost:8080/zonerules/projectTest/${selZone}`
+        let { response } = await fetch(url, {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(state)
+        }).then(res => res.json());
+        setErrors(response);
     }
 
     return (
         <>
             <IntNavigation />
-            <div className='text-center'>
+            <div className='text-center padding'>
                 <div>
                     <div className='col-md-10 col-md-offset-1 section-title section-title1'>
                         <h2>Test your project</h2>
                     </div>
                     <center>
-                        <form className="pt-3" onSubmit={handleSubmit} action="" >
+                        <form className="pt-3" onSubmit={handleSubmit}>
                             <div className="form-group">
+                                <input
+                                    type="text"
+                                    name='code'
+                                    value={state.code}
+                                    onChange={e => setSelZone(e.target.value)}
+                                    className="form-control form-control-lg"
+                                    placeholder="Zone name"
+                                />
+                            </div>
+                            {rules.map(rule => (
+                                <div className="form-group">
+                                    <input
+                                        type="number"
+                                        name={rule._id}
+                                        step={0.1}
+                                        value={state[rule._id]}
+                                        onChange={handleChange}
+                                        className="form-control form-control-lg"
+                                        placeholder={rule.rule_name}
+                                    />
+                                    {errors[rule._id]}
+                                </div>
+                            ))}
+
+                            {/* <div className="form-group">
                                 <input onChange={handleChange} type="text" className="form-control form-control-lg" name='code' value={state.code} id="code" placeholder="Zone name" />
                             </div>
 
@@ -140,7 +146,7 @@ const ProjectTest = () => {
 
                             <div className="form-group">
                                 <input onChange={handleChange} type="number" className="form-control form-control-lg" name='elevatorsArea' value={state.elevatorsArea} id="elevatorsArea" placeholder="Elevators Area (m2)" />
-                            </div>
+                            </div> */}
 
                             <div className="mt-3">
                                 <button type="submit" className="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Submit">Submit</button>
@@ -148,7 +154,7 @@ const ProjectTest = () => {
                         </form>
                     </center>
                     <div class="mt-3">
-                        <center><Link to={"/"}><button type="submit" class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
+                        <center><Link to={"/"}><button class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
                     </div>
                 </div>
 

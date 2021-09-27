@@ -35,22 +35,28 @@ export default function Cities1() {
     return (
       <>
       <IntNavigation />
-        <div className='text-center'>
+        <div className='text-center padding'>
 
             <div class="col-sm-6">
             <div className='col-md-10 col-md-offset-1 section-title section-title1 section-title2'>
-                    <h2>Cities</h2>
-                </div>
-               
-                <div class="col-sm-6">
-                  <Link to="/addcountry" class="btn " data-toggle="modal">
-                    <i class="bx bxs-plus-circle bx-burst"></i>
-                    <span>add new city</span>
-                  </Link>
-                </div>
+                <h2>Cities</h2>
+            </div>
+            <div class="col-sm-6">
+              <Link to="/addcity" className="btn btnn1" data-toggle="modal">
+                <i class="bx bxs-plus-circle bx-burst"></i>
+                <span>add new city</span>
+              </Link>
+            </div>  
+            <div class="col-sm-6">
+              <Link to="/adminpage" className="btn btnn2" data-toggle="modal">
+                <i class="bx bxs-plus-circle bx-burst"></i>
+                <span>Cancel</span>
+              </Link>
+            </div>  
+                
               
             </div>
-
+            
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
