@@ -1,9 +1,12 @@
 
-.container{
+.container3{
   display:flex;
   flex-direction: column;
   width: 50%;
+}
 
+body{
+  background-color: rgb(240, 238, 238);
 }
 
 .container1{
@@ -15,6 +18,15 @@
   display:flex;
   flex-direction: row;
 }
+
+.section-title1{
+  margin-top: 8%;
+}
+
+.section-title2{
+  margin-top: 15%;
+}
+
 
 
 
@@ -70,21 +82,48 @@
     
 }
 
-.buttonscontainer{
-  display: flex;
-  justify-content: center;
+.addbutton3{
+  background-color: #fbb23d;
+  color: white;
+  width:100px;
+  height: 100px;
+  /* border-radius: 25px; */
+  border: none;
+  font-size: 18px;
+  border-radius: 50%;
+  padding: 1%;
 }
 
-.form-group{
-  width: 50%;
+/* .rules{
+  background-color: #fbb23d;
+  color: white;
+  padding: 2%;
+  display: inline-block;
+  border-radius: 50%;
+} */
+
+.addbutton3:hover{
+  background-color: rgb(32, 32, 32);
+  color: #fbb23d;  
 }
+
+.buttonscontainer{
+  display: flex;
+  /* justify-content: center; */
+  justify-content: space-evenly;
+}
+
+/* .form-group{
+  width: 50%;
+} */
 
 .form-control{
   width: 50%;
 }
 
-.btn{
+.btn-width{
   width: 20%;
+  background-color: white;
 }
 
 .form-control-login{

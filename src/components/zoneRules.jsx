@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { IntNavigation } from "./intNavigation";
 
 export default function ZoneRules(props) {
     // Get zonerules
@@ -19,8 +21,10 @@ export default function ZoneRules(props) {
     }, [])
 
     return (
+        <>
+      <IntNavigation />
         <div>
-            <div className='col-md-10 col-md-offset-1 section-title'>
+            <div className='col-md-10 col-md-offset-1 section-title section-title1'>
                <center><h2> <p>{zoneRules[0] && zoneRules[0].zone.code}</p></h2></center>
             </div>
             <table className="table table-striped table-hover">
@@ -51,7 +55,11 @@ export default function ZoneRules(props) {
                     </tr>
                 </tbody>
             </table>
+            <div class="mt-3">
+                <center><Link to={"/"}><button type="submit" class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
+            </div>
         </div>
+        </>
 
     )
 }

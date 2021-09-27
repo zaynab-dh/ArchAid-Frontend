@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from "react-router-dom";
+import { IntNavigation } from "../components/intNavigation";
 
 
 export default function Login() {
@@ -55,10 +56,11 @@ export default function Login() {
 
     return (
         <>
+        <IntNavigation />
         
     <div className='text-center'>
 
-      <div className='col-md-10 col-md-offset-1 section-title'>
+      <div className='col-md-10 col-md-offset-1 section-title section-title1'>
           <h2>Admin login</h2>
       </div>
       <center><form class="pt-3" onSubmit={Submit} action="" >
@@ -82,13 +84,13 @@ export default function Login() {
             <br/>
 
         <div class="mt-3">
-          <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Login">Login</button>
+          <button type="submit" class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Login">Login</button>
         </div>
       </form>
       </center>
       <br/>
       <div class="mt-3">
-        <center><Link to={"/"}><button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
+        <center><Link to={"/"}><button type="submit" class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
       </div>
 
     </div>

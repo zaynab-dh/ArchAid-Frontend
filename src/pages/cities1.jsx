@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import API from "../API";
+import { IntNavigation } from "../components/intNavigation";
 
 
 export default function Cities1() {
@@ -32,10 +33,12 @@ export default function Cities1() {
     }
 
     return (
+      <>
+      <IntNavigation />
         <div className='text-center'>
 
             <div class="col-sm-6">
-            <div className='col-md-10 col-md-offset-1 section-title'>
+            <div className='col-md-10 col-md-offset-1 section-title section-title1 section-title2'>
                     <h2>Cities</h2>
                 </div>
                
@@ -71,5 +74,6 @@ export default function Cities1() {
             </table>
 
         </div>
+        </>
     )
 }

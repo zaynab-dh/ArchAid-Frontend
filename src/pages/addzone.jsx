@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Cities from '../components/cities';
 import { Link } from "react-router-dom";
+import { IntNavigation } from "../components/intNavigation";
 
 const Zone = () => {
 
@@ -25,9 +26,11 @@ const Zone = () => {
     }
 
     return (
+        <>
+      <IntNavigation />
         <div className='text-center'>
 
-      <div className='col-md-10 col-md-offset-1 section-title'>
+      <div className='col-md-10 col-md-offset-1 section-title section-title1'>
           <h2>Add new zone</h2>
       </div>
       <center><form class="pt-3" onSubmit={handleCreate} action="" >
@@ -42,14 +45,15 @@ const Zone = () => {
                     <Cities name="cityId" value={state.cityId} onChange={handleChange} />
                 </div>
                 <div class="mt-3">
-                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Add">Add</button>
+                    <button type="submit" class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Add">Add</button>
                 </div>
             </form></center>
       <br/>
       <div class="mt-3">
-        <center><Link to={"/adminpage"}><button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
+        <center><Link to={"/adminpage"}><button type="submit" class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
       </div>
         </div>
+        </>
     );
 }
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { IntNavigation } from "../components/intNavigation";
 
 const Category = () => {
   let history = useHistory();
@@ -33,9 +34,11 @@ const Category = () => {
   }
 
   return (
+    <>
+      <IntNavigation />
     <div className='text-center'>
 
-      <div className='col-md-10 col-md-offset-1 section-title'>
+      <div className='col-md-10 col-md-offset-1 section-title section-title1'>
           <h2>Add new category</h2>
       </div>
       <center><form class="pt-3" onSubmit={handleCreate} action="" >
@@ -43,16 +46,17 @@ const Category = () => {
           <input onChange={handleChange} type="text" class="form-control form-control-lg" name='category_name' value={state.category_name} id="category_name" placeholder="category name" />
         </div>
         <div class="mt-3">
-          <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Add">Add</button>
+          <button type="submit" class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Add">Add</button>
         </div>
       </form>
       </center>
       <br/>
       <div class="mt-3">
-        <center><Link to={"/adminpage"}><button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
+        <center><Link to={"/adminpage"}><button type="submit" class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
       </div>
 
     </div>
+    </>
   );
 }
 

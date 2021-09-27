@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
+import { IntNavigation } from "../components/intNavigation";
 
 export const AdminPage = (props) => {
   return (
+    <>
+    <IntNavigation />
     <div  className='text-center'>
-      <div className='container'>
-        <div className='col-md-10 col-md-offset-1 section-title'>
+      <div className='container3'>
+        <div className='col-md-10 col-md-offset-1 section-title section-title1 section-title2'>
           <h2>Admin Page</h2>
         </div>
         <div className='container1'>
@@ -57,35 +60,35 @@ export const AdminPage = (props) => {
                       </label>
 
                       <label htmlFor="" style={{ display: "block" }}>
-                          <Link to={"/addcity"}><button  className="addbutton1" name="addcity" value="add city" >Add City</button></Link>
+                          <Link to={"/cities1"}><button  className="addbutton1" name="cities" value="cities" >Cities</button></Link>
                       </label>
 
                       <label htmlFor="" style={{ display: "block" }}>
-                          <Link to={"/addzone"}><button  className="addbutton1" name="addzone" value="add zone" >Add Zone</button></Link>
+                          <Link to={"/addzone"}><button  className="addbutton1" name="addzone" value="add zone" >Zones</button></Link>
                       </label>
 
                       <label htmlFor="" style={{ display: "block" }}>
-                          <Link to={"/addproperty"}><button  className="addbutton1" name="addproperty" value="add property" >Add Property</button></Link>
+                          <Link to={"/addproperty"}><button  className="addbutton1" name="addproperty" value="add property" >Properties</button></Link>
                       </label>
 
                       <label htmlFor="" style={{ display: "block" }}>
-                          <Link to={"/addrule"}><button  className="addbutton1" name="addrule" value="add rule" >Add Rule</button></Link>
+                          <Link to={"/addrule"}><button  className="addbutton1" name="addrule" value="add rule" >Rules</button></Link>
                       </label>
 
                       <label htmlFor="" style={{ display: "block" }}>
-                          <Link to={"/addzonerule"}><button  className="addbutton1" name="addzonerule" value="add zonerule" >Add zone rule value</button></Link>
+                          <Link to={"/addzonerule"}><button  className="addbutton1" name="addzonerule" value="add zonerule" >Zone rules values</button></Link>
                       </label>
 
                       <label htmlFor="" style={{ display: "block" }}>
-                          <Link to={"/addcategory"}><button  className="addbutton1" name="addcategory" value="add category" >Add category</button></Link>
+                          <Link to={"/addcategory"}><button  className="addbutton1" name="addcategory" value="add category" >Categories</button></Link>
                       </label>
 
                       <label htmlFor="" style={{ display: "block" }}>
-                          <Link to={"/addcondition"}><button  className="addbutton1" name="addcondition" value="add condition" >Add condition</button></Link>
+                          <Link to={"/addcondition"}><button  className="addbutton1" name="addcondition" value="add condition" >Conditions</button></Link>
                       </label>
 
                       <label htmlFor="" style={{ display: "block" }}>
-                          <Link to={"/addrulevariants"}><button  className="addbutton1" name="addrulevariants" value="add rulevariants" >Add Rulevariants</button></Link>
+                          <Link to={"/addrulevariants"}><button  className="addbutton1" name="addrulevariants" value="add rulevariants" >Rulevariants</button></Link>
                       </label>
                 </div>
             </div>
@@ -96,6 +99,7 @@ export const AdminPage = (props) => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 export default AdminPage;

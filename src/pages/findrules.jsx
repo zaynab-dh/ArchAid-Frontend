@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ZoneRules from "../components/zoneRules"
 import { useHistory } from 'react-router-dom';
+import { IntNavigation } from "../components/intNavigation";
 
 export default function FindRules() {
     const history = useHistory();
@@ -92,10 +93,12 @@ export default function FindRules() {
     }
 
     return (
+        <>
+      <IntNavigation />
         <div className='text-center'>
 
 
-            <div className='col-md-10 col-md-offset-1 section-title'>
+            <div className='col-md-10 col-md-offset-1 section-title section-title1'>
                 <h2>Find your zone's rules</h2>
             </div>
             <form onSubmit={handleSubmit}>
@@ -154,7 +157,7 @@ export default function FindRules() {
                 <div>
                     <button
                         type="submit"
-                        className="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn"
+                        className="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn"
                         value="Submit"
                         style={{
                             margin: '30px auto'
@@ -168,6 +171,11 @@ export default function FindRules() {
 
             </form>
 
+            <div class="mt-3">
+        <center><Link to={"/"}><button type="submit" class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
+      </div>
+
         </div>
+        </>
     )
 }

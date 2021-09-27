@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { IntNavigation } from "../components/intNavigation";
 
 const Country = () => {
   let history = useHistory();
@@ -19,7 +20,9 @@ const Country = () => {
     };
 
     await axios.post('http://localhost:8080/countries', reqBody)
-      .then(history.push('/countries1'))
+      .then(() => {
+        history.push('/countries1')
+      })
 
   }
 
@@ -33,9 +36,12 @@ const Country = () => {
   }
 
   return (
+
+    <>
+      <IntNavigation />
     <div className='text-center'>
 
-      <div className='col-md-10 col-md-offset-1 section-title'>
+      <div className='col-md-10 col-md-offset-1 section-title section-title1'>
           <h2>Add new country</h2>
       </div>
       <center><form class="pt-3" onSubmit={handleCreate} action="" >
@@ -43,16 +49,17 @@ const Country = () => {
           <input onChange={handleChange} type="text" class="form-control form-control-lg" name='country_name' value={state.country_name} id="country_name" placeholder="country name" />
         </div>
         <div class="mt-3">
-          <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Add">Add</button>
+          <button type="submit" class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Add">Add</button>
         </div>
       </form>
       </center>
       <br/>
       <div class="mt-3">
-        <center><Link to={"/adminpage"}><button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
+        <center><Link to={"/adminpage"}><button type="submit" class="btn btn-block btn-width btn-gradient-primary btn-lg font-weight-medium auth-form-btn" value="Back">Back</button></Link></center>
       </div>
 
     </div>
+    </>
   );
 }
 
