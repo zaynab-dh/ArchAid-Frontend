@@ -11,6 +11,7 @@ import EditCountry from "./pages/editcountry";
 import EditCity from "./pages/editcity";
 import FindRules from "./pages/findrules";
 import ProjectTest from "./pages/projecttest";
+import ProjectTest1 from "./pages/projecttest1";
 import Countries from "./components/countries";
 import Countries1 from "./pages/countries1";
 import Cities from "./components/cities";
@@ -39,6 +40,7 @@ const App = () => {
       <Route path="/countries1" component={Countries1} />
       <Route path="/findrules" component={FindRules} />
       <Route path="/projecttest" component={ProjectTest} />
+      <Route path="/projecttest1" component={ProjectTest1} />
       <Route path="/cities" component={Cities} />
       <Route path="/cities1" component={Cities1} />
       <Route path="/contacts" component={Contacts} />
