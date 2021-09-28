@@ -9,7 +9,15 @@
 body{
   background-color: rgb(240, 238, 238);
 }
-
+.containerrr{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  /* justify-content: space-between; */
+  padding-left: 15%;
+  padding-right: 15%;
+}
 .container1{
   display:flex;
   flex-wrap: wrap;
@@ -27,6 +35,10 @@ body{
 }
 
 .section-title2{
+  margin-top: 8%;
+}
+
+.section-title3{
   margin-top: 15%;
 }
 
@@ -60,31 +72,37 @@ body{
     font-size: 18px;
 } */
 .addbutton1{
-  background-color: #fbb23d;
+  background-color: rgb(36, 35, 35);
   color: white;
   width:150px;
   height: 150px;
   border-radius: 25px;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.5s linear;
 }
 
+
+
 .addbutton1:hover{
-  background-color: #fbb23d;
-  color: rgb(37, 35, 35);
+  background-color: white;
+  color: #fbb23d;
     
 }
 
 .addbutton2{
   /* margin-top: 50px; */
   /* margin-left: 310px; */
-    background-color: rgb(63, 58, 58);
-    color: white;
+    background-color: white;
+    color: rgb(36, 35, 35);
     width:250px;
     height: 50px;
     /* border:none; */
     border-radius: 25px;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
     justify-content: center;
+    transition: all 0.5s linear;
 }
 
 .addbutton2:hover{
@@ -103,6 +121,7 @@ body{
   font-size: 18px;
   border-radius: 50%;
   padding: 1%;
+  transition: all 0.5s linear;
 }
 
 

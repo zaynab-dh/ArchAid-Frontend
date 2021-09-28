@@ -1,37 +1,86 @@
 import { useState } from 'react'
 import emailjs from 'emailjs-com'
+import API from "../API";
+import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
-const initialState = {
-  name: '',
-  email: '',
-  message: '',
-}
+// const initialState = {
+//   name: '',
+//   email: '',
+//   message: '',
+// }
 export const Contact = (props) => {
-  const [{ name, email, message }, setState] = useState(initialState)
+  const history = useHistory();
+  // const [{ name, email, message }, setState] = useState(initialState)
 
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setState((prevState) => ({ ...prevState, [name]: value }))
-  }
-  const clearState = () => setState({ ...initialState })
+  const [state, updateState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(name, email, message)
-    emailjs
-      .sendForm(
-        'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID'
-      )
-      .then(
-        (result) => {
-          console.log(result.text)
-          clearState()
-        },
-        (error) => {
-          console.log(error.text)
-        }
-      )
+  function setState(nextState) {
+    updateState((previousState) => ({
+      ...previousState,
+      ...nextState,
+    }));
+  };
+
+  function handleChange(e) {
+    let { name, value } = e.target;
+    setState({ [name]: value });
   }
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target
+  //   setState((prevState) => ({ ...prevState, [name]: value }))
+  // }
+  // const clearState = () => setState({ ...initialState })
+
+  const clearState = () => setState({ name: "",
+  email: "",
+  message: "",})
+
+  const handleSubmit=async(e)=> {
+    e.preventDefault();
+
+    let reqBody = {
+        name: state.name,
+        email: state.email,
+        message: state.message,
+      };
+
+      await axios.post('http://localhost:8080/contacts', reqBody)
+      // .then(() => {
+      //   history.push('/contacts')
+      // })
+
+      
+        clearState()
+      
+
+      // await API.post(`contacts`, reqBody).then(
+      //   history.push({ pathname: "/contacts" })
+      // );
+    }
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   console.log(name, email, message)
+  //   emailjs
+  //     .sendForm(
+  //       'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID'
+  //     )
+  //     .then(
+  //       (result) => {
+  //         console.log(result.text)
+  //         clearState()
+  //       },
+  //       (error) => {
+  //         console.log(error.text)
+  //       }
+  //     )
+  // }
   return (
     <div>
       <div id='contact'>
@@ -53,6 +102,7 @@ export const Contact = (props) => {
                         type='text'
                         id='name'
                         name='name'
+                        value={state.name}
                         className='form-control'
                         placeholder='Name'
                         required
@@ -67,6 +117,7 @@ export const Contact = (props) => {
                         type='email'
                         id='email'
                         name='email'
+                        value={state.email}
                         className='form-control'
                         placeholder='Email'
                         required
@@ -79,6 +130,7 @@ export const Contact = (props) => {
                 <div className='form-group'>
                   <textarea
                     name='message'
+                    value={state.message}
                     id='message'
                     className='form-control'
                     rows='4'

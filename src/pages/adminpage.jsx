@@ -6,13 +6,13 @@ export const AdminPage = (props) => {
     <>
     <IntNavigation />
     <div  className='text-center'>
-      <div className='container3'>
+      {/* <div className='container3'> */}
         <div className='col-md-10 col-md-offset-1 section-title section-title1 section-title2'>
           <h2>Admin Page</h2>
         </div>
-        <div className='container1'>
-          <div className='container2'>
-            <div >
+        {/* <div className='container1'>
+          <div className='container2'> */}
+            {/* <div > */}
               {/* <div className='col-xs-6 col-md-3'>
 
                       <label htmlFor="" >
@@ -51,9 +51,9 @@ export const AdminPage = (props) => {
                           <Link to={"/addrulevariants"}><button  className="addbutton" name="addrulevariants" value="add rulevariants" >Add Rulevariants</button></Link>
                       </label>
                 </div> */}
-            </div>
-            <div >
-              <div className='col-xs-6 col-md-3'>
+            {/* </div> */}
+            <div>
+              <div className='col-xs-6 col-md-3 containerrr'>
 
                       <label htmlFor="" >
                           <Link to={"/countries1"}><button  className="addbutton1" name="countries1" value="countries1" >Countries</button></Link>
@@ -90,15 +90,19 @@ export const AdminPage = (props) => {
                       <label htmlFor="" style={{ display: "block" }}>
                           <Link to={"/addrulevariants"}><button  className="addbutton1" name="addrulevariants" value="add rulevariants" >Rulevariants</button></Link>
                       </label>
+
+                      <label htmlFor="" style={{ display: "block" }}>
+                          <Link to={"/contacts"}><button  className="addbutton1" name="contacts" value="contacts" >Contacts</button></Link>
+                      </label>
                 </div>
             </div>
-          </div>
-          <label htmlFor="" style={{ display: "block" }} className="cancellabel" >
+          {/* </div> */}
+          <label htmlFor="" style={{margin: "auto", float:"unset", padding:"20px" }} className="cancellabel" >
             <Link to={"/"}><button  className="addbutton2" name="cancel" value="cancel" >Cancel</button></Link>
           </label>
-        </div>
-      </div>
-    </div>
+        {/* {/* </div> */}
+      </div> 
+    {/* </div> */}
     </>
   )
 }

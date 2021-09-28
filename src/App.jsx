@@ -15,6 +15,7 @@ import Countries from "./components/countries";
 import Countries1 from "./pages/countries1";
 import Cities from "./components/cities";
 import Cities1 from "./pages/cities1";
+import Contacts from "./pages/contacts";
 import Zones from "./components/zones";
 import Properties from "./components/properties";
 import Categories from "./components/categories";
@@ -40,6 +41,7 @@ const App = () => {
       <Route path="/projecttest" component={ProjectTest} />
       <Route path="/cities" component={Cities} />
       <Route path="/cities1" component={Cities1} />
+      <Route path="/contacts" component={Contacts} />
       <Route path="/zones" component={Zones} />
       <Route path="/properties" component={Properties} />
       <Route path="/categories" component={Categories} />

@@ -6,31 +6,28 @@ import { IntNavigation } from "../components/intNavigation";
 import Swal from 'sweetalert2'
 
 
-export default function Countries1() {
+export default function Contacts() {
   //Get All countries
-  const [countries, setCountries] = useState([]);
-  const [selCount, setSelCount] = useState(null);
+  const [contacts, setContacts] = useState([]);
+  const [selCont, setSelCont] = useState(null);
 
   useEffect(() => {
-    let getCountries = async () => {
-      let url = 'http://localhost:8080/countries'
+    let getContacts = async () => {
+      let url = 'http://localhost:8080/contacts'
       let res = await fetch(url);
       let result = await res.json();
       if (result.success) {
-        setCountries(result.response);
+        setContacts(result.response);
         if (result.response && result.response[0]) {
-          setSelCount(result.response[0]._id)
+          setSelCont(result.response[0]._id)
         }
       }
     }
-    getCountries();
+    getContacts();
   }, [])
 
 
 
-  // let handleCountryChange = (e) => {
-  //     setSelCount(e.target.value);
-  // }
 
   let handleDelete = async (id) => {
     const willDelete = await Swal.fire({
@@ -45,10 +42,10 @@ export default function Countries1() {
     });
     if (willDelete.isConfirmed) {
       try {
-        let res = await API.delete(`countries/${id}`);
+        let res = await API.delete(`contacts/${id}`);
 
-        let filter = [...countries].filter((countries) => countries._id !== id);
-        setCountries(filter);
+        let filter = [...contacts].filter((contacts) => contacts._id !== id);
+        setContacts(filter);
         const result = res.data.message;
         if (res.data.isConfirmed) {
           await Swal.fire(
@@ -70,15 +67,9 @@ export default function Countries1() {
 
         <div class="col-sm-6">
           <div className='col-md-10 col-md-offset-1 section-title section-title1 section-title3'>
-            <h2>Countries</h2>
+            <h2>Contacts</h2>
           </div>
 
-          <div class="col-sm-6">
-            <Link to="/addcountry" className="btn btnn1" data-toggle="modal">
-              <i class="bx bxs-plus-circle bx-burst"></i>
-              <span>add new country</span>
-            </Link>
-          </div>
           <div class="col-sm-6">
               <Link to="/adminpage" className="btn btnn2" data-toggle="modal">
                 <i class="bx bxs-plus-circle bx-burst"></i>
@@ -90,18 +81,22 @@ export default function Countries1() {
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th>country name</th>
+            
+                <th>Contact Name </th>
+                <th>Email</th>
+                <th>Message</th>
+                    
             </tr>
           </thead>
           <tbody>
-            {countries.map((country) => (
+            {contacts.map((contact) => (
               <tr>
-                <td>{country.country_name}</td>
+                <td>{contact.name}</td>
+                <td>{contact.email}</td>
+                <td>{contact.message}</td>
+                
                 <td>
-                  <Link to={`/editcountry/${country._id}`}><button >edit</button></Link>
-                </td>
-                <td>
-                  <button onClick={() => handleDelete(country._id)}>Delete</button>
+                  <button onClick={() => handleDelete(contact._id)}>Delete</button>
                 </td>
               </tr>
 
