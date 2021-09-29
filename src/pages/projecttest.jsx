@@ -15,7 +15,7 @@ const ProjectTest = () => {
     useEffect(() => {
         window.scrollTo({ top: 0 });
         let getRules = async () => {
-            let url = `http://localhost:8080/rules`;
+            let url = `http://localhost:8080/rules/getFields`;
             let res = await fetch(url);
             let result = await res.json();
             if (result.success) {

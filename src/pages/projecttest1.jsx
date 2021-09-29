@@ -25,7 +25,7 @@ const ProjectTest1 = () => {
     useEffect(() => {
         window.scrollTo({ top: 0 });
         let getRules = async () => {
-            let url = `http://localhost:8080/rules`;
+            let url = `http://localhost:8080/rules/getFields`;
             let res = await fetch(url);
             let result = await res.json();
             if (result.success) {
@@ -43,8 +43,6 @@ const ProjectTest1 = () => {
             [name]: value
         }));
     }
-
-    let validate = () => { }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -68,7 +66,13 @@ const ProjectTest1 = () => {
         let maxGeneralArea = 0;
         maxGeneralArea = maxGeneralInvestment * sitear;
         let finalArea = 0;
-        finalArea = grflar + (tyflar + (stairar + elevar - 26) + balcar) * nbf;
+        let gr = parseInt(grflar)
+        let tr = parseInt(tyflar)
+        let sr = parseInt(stairar)
+        let er = parseInt(elevar)
+        let br = parseInt(balcar)
+        let nf = parseInt(nbf)
+        finalArea = gr + (tr + (sr + er - 26) + br) * nf;
         console.log(finalArea)
 
         if (finalArea > maxGeneralArea) {
@@ -83,8 +87,8 @@ const ProjectTest1 = () => {
 
         }
 
-        if(finalDescription=="")
-        finalDescription="nice";
+        // if(finalDescription ===""){finalDescription ="Congratulations! Good work!";}
+        else{finalDescription ="Congratulations! Good work!"};
        
 
         Swal.fire({
@@ -92,6 +96,7 @@ const ProjectTest1 = () => {
             width: 600,
             padding: '3em',
             background: '#fff url(/images/trees.png)',
+            confirmButtonColor: '#fbb23d',
             backdrop: `
                       rgba(0,0,123,0.4)
                       url("/images/nyan-cat.gif")
