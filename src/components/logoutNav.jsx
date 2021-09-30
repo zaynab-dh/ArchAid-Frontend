@@ -1,4 +1,4 @@
-export const IntNavigation = (props) => {
+export const LogoutNav = (props) => {
     return (
       <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
         <div className='container'>
@@ -27,8 +27,8 @@ export const IntNavigation = (props) => {
             <ul className='nav navbar-nav navbar-right'>
               
               <li>
-                <a href='/login' className='page-scroll'>
-                  Login
+                <a href='/' className='page-scroll'>
+                  Logout
                 </a>
               </li>
             </ul>

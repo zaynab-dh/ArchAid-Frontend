@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router";
 import axios from 'axios';
 import API from "../API";
 import Countries from '../components/countries';
-import { IntNavigation } from "../components/intNavigation";
+import { LogoutNav } from "../components/logoutNav";
 
 export default function EditCity() {
   let history = useHistory();
@@ -53,7 +53,7 @@ export default function EditCity() {
 
   return (
     <>
-      <IntNavigation />
+      <LogoutNav />
       <div className='text-center'>
 
       <div className='col-md-10 col-md-offset-1 section-title section-title1'>

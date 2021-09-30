@@ -84,7 +84,7 @@ export const Contact = (props) => {
   return (
     <div>
       <div id='contact'>
-        <div className='container'>
+        <div className='container form-control1'>
           <div className='col-md-8'>
             <div className='row'>
               <div className='section-title'>

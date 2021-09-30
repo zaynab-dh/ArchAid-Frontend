@@ -19,7 +19,7 @@ export default function Cities(props) {
                     }
                 }
                 setCities(result.response);
-                setSelCity(event);
+                // setSelCity(event);
             }
         }
         getCities();

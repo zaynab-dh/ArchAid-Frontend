@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { IntNavigation } from "../components/intNavigation";
+import { LogoutNav } from "../components/logoutNav";
 
 export const AdminPage = (props) => {
   return (
     <>
-    <IntNavigation />
+    <LogoutNav />
     <div  className='text-center'>
       {/* <div className='container3'> */}
         <div className='col-md-10 col-md-offset-1 section-title section-title1 section-title2'>

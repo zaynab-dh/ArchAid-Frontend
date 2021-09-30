@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import axios from 'axios';
 import API from "../API";
-import { IntNavigation } from "../components/intNavigation";
+import { LogoutNav } from "../components/logoutNav";
 
 export default function EditCountry() {
   let history = useHistory();
@@ -54,7 +54,7 @@ export default function EditCountry() {
 
   return (
     <>
-      <IntNavigation />
+      <LogoutNav />
       <div className='text-center'>
 
         <div className='col-md-10 col-md-offset-1 section-title section-title1'>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import API from "../API";
-import { IntNavigation } from "../components/intNavigation";
+import { LogoutNav } from "../components/logoutNav";
 
 
 export default function Cities1() {
@@ -34,7 +34,7 @@ export default function Cities1() {
 
     return (
       <>
-      <IntNavigation />
+      <LogoutNav />
         <div className='text-center padding'>
 
             <div class="col-sm-6">

@@ -62,7 +62,7 @@ export const Features = (props) => {
               
 
               <label htmlFor="" style={{ display: "block" }}>
-                <Link to={"/projecttest"}>
+                <Link to={"/projecttest1"}>
                   <button
                     className="addbutton3"
                     name="projecttest"

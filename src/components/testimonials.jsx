@@ -1,7 +1,7 @@
 export const Testimonials = (props) => {
   return (
     <div id='testimonials'>
-      <div className='container'>
+      <div className='container form-control1'>
         <div className='section-title text-center'>
           <h2>What our clients say</h2>
         </div>

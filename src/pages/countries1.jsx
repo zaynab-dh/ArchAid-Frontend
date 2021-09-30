@@ -2,7 +2,7 @@ import { faSortAlphaDownAlt } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import API from "../API";
-import { IntNavigation } from "../components/intNavigation";
+import { LogoutNav } from "../components/logoutNav";
 import Swal from 'sweetalert2'
 
 
@@ -65,7 +65,7 @@ export default function Countries1() {
 
 
   return (
-    <><IntNavigation />
+    <><LogoutNav />
       <div className='text-center padding'>
 
         <div class="col-sm-6">

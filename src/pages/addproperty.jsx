@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Zones from '../components/zones';
-import { IntNavigation } from "../components/intNavigation";
+import { LogoutNav } from "../components/logoutNav";
 import { Link } from "react-router-dom";
 
 const Property = () => {
@@ -27,7 +27,7 @@ const Property = () => {
 
     return (
         <>
-      <IntNavigation />
+      <LogoutNav />
         <div className='text-center'>
 
       <div className='col-md-10 col-md-offset-1 section-title section-title1'>

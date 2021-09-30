@@ -136,7 +136,7 @@ const ProjectTest1 = () => {
             <IntNavigation />
             <div className='text-center padding'>
                 <div>
-                    <div className='col-md-10 col-md-offset-1 section-title section-title1'>
+                    <div className='col-md-10 col-md-offset-1 section-title section-title1 section-title3'>
                         <h2>Test your project</h2>
                     </div>
                     <center>
